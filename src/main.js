@@ -13,6 +13,7 @@ grapesjs.plugins.add('gjs-plugin-export', (editor, opts) => {
     preHtml: '<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="./css/style.css"></head><body>',
     postHtml: '</body><html>',
     preCss: '',
+    
     postCss: ''
   };
 
@@ -29,6 +30,7 @@ grapesjs.plugins.add('gjs-plugin-export', (editor, opts) => {
     run() {
       let zip = new JSZip();
       let cssDir = zip.folder("css");
+      
       let fn = 'dotboss_template_' + Date.now() + '.zip';
       zip.file('index.html', c.preHtml + editor.getHtml() + c.postHtml);
       cssDir.file('style.css', c.preCss + editor.getCss() + c.postCss);
